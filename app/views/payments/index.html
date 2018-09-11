@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+ <html lang="en"> 
+      <head> 
+           <meta content="text/html" charset="utf-8" > 
+           <meta name="viewport" content="width=device-width, initial-scale=1"> 
+           <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" > 
+           <link rel="stylesheet" href="../../../assets/css/jquery-ui.css" > 
+           <link rel="stylesheet" href="../../../assets/css/jquery.datepick.css" > 
+           <link rel="stylesheet" href="../../../assets/css/custom/uploadfile.css" > 
+           <link rel="stylesheet" href="../../../assets/css/fontawesome-all.min.css" > 
+          <link rel="stylesheet" href="../../../assets/css/custom/slide-menu.css" >
+        <link rel="stylesheet" href="../../../assets/css/custom/table-header.css" >
+        <link rel="stylesheet" href="../../../assets/css/custom/view.css" >
+    </head>    <body onload="loadHtmlPage('../menu.html', 'sidemenu');toggle_display('dview');">
+        <div class="container-fluid" style="padding:0; margin:0; top:0; left:0;"> 
+            <div ng-app="paymentsView" ng-controller="paymentsCtrl" class="row">
+                <div id="sidemenu" class="col-xl-3 col-lg-3 col-md-3 d-lg-inline d-md-inline d-sm-none d-none"></div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <span class="info"></span>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <ul class="menu">
+                                <li onclick="toggle_display('dview','reload');" class="rootmenu"><i class="fas fa-home" aria-hidden="true"></i><a href="#"> Home</a></li>
+                                <li class="rootmenu"><i class="fas fa-print" aria-hidden="true"></i><a href="#"> Print</a></li>
+                                <li class="rootmenu"><i class="fas fa-cloud-download-alt"></i><a href="#"> Export</a>
+                                    <ul id="menu_list">
+                                        <li><i class="fas fa-file-excel" aria-hidden="true"></i><a href="#">  Excel</a></li>
+                                        <li><i class="fas fa-file-alt" aria-hidden="true"></i><a href="#">  CSV</a></li>
+                                        <li><i class="fas fa-file-pdf" aria-hidden="true"></i><a href="#">  Pdf</a></li>
+                                        <li><i class="fas fa-file-alt" aria-hidden="true"></i><a href="#">  Text</a></li>
+                                        <li><i class="fas fa-file-word" aria-hidden="true"></i><a href="#">  Word</a></li>
+                                    </ul>
+                                </li>
+                                <li onclick="toggle_display('dnew');" class="rootmenu"><i class="fas fa-copy" aria-hidden="true"></i><a href="#"> Add New</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div>
+            <div class="display" id="dnew">
+                <form name="frmPayment"  method="post" enctype="multipart/form-data">
+                    <input #colname type="hidden" name="colname" ng-model="update.col_name" />
+                    <input #colvalue type="hidden" name="colvalue" ng-model="update.col_value" />
+
+     <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" ng-model="payment.username" placeholder="Enter username" />
+     </div>
+     <div class="form-group">
+      <label for="pay_ref">Pay Ref</label>
+      <input type="text" class="form-control" name="pay_ref" ng-model="payment.pay_ref" placeholder="Enter pay_ref" />
+     </div>
+     <div class="form-group">
+      <label for="pay_date">Pay Date</label>
+      <input type="date" class="form-control" name="pay_date" ng-model="payment.pay_date" placeholder="Enter pay_date" />
+     </div>
+     <div class="form-group">
+      <label for="used">Used</label>
+      <input type="text" class="form-control" name="used" ng-model="payment.used" placeholder="Enter used" />
+     </div>
+<button ng-click="payment_save();" type="button" class="btn btn-primary">&nbsp;SAVE&nbsp;</button>
+</form>
+</div><div class="display" id="dview">
+  <table class="table table-hover table-dark table-bordered">    <thead>
+        <tr><th>S/N</th><th>ID</th><th>USERNAME</th><th>PAY REF</th><th>&nbsp;</th>
+    </tr></thead><tbody><tr ng-repeat="x in payments.payment"><td>{{$index + 1}}</td><td>{{x.id}}</td><td>{{x.username}}</td><td>{{x.pay_ref}}</td><td align="center">&nbsp;<i onclick="toggle_display('dnew');" ng-click="do_payment_update('id', x.id);" class="fas fa-edit"></i>&nbsp;&nbsp;<i onclick="toggle_display('dsview');" ng-click="payment_view_single('id', x.id);" class="fas fa-eye"></i>&nbsp;&nbsp;<i ng-click="payment_delete('id', x.id);" class="fas fa-trash"></i></td>&nbsp;
+  </tbody>
+</table>
+</div>
+    <div class="display" id="dsview">
+        <table>
+            <tr><td align="right"><b>id:</b></td><td align="left">&nbsp;{{payment.id}}</td></tr>
+            <tr><td align="right"><b>username:</b></td><td align="left">&nbsp;{{payment.username}}</td></tr>
+            <tr><td align="right"><b>pay_ref:</b></td><td align="left">&nbsp;{{payment.pay_ref}}</td></tr>
+            <tr><td align="right"><b>pay_date:</b></td><td align="left">&nbsp;{{payment.pay_date}}</td></tr>
+            <tr><td align="right"><b>used:</b></td><td align="left">&nbsp;{{payment.used}}</td></tr>
+        </table>
+    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/popper.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/angular.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery-ui.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.datepick.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.table2excel.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/jquery.uploadfile.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/utility.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/js/autocomplete.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../assets/src/payments.js"></script>    </body>
+</html>

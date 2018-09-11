@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>Educare&reg;::Portal</title>
+        <meta content="text/html" charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+        <link rel="stylesheet" href="assets/css/jquery.datepick.css" />
+        <link rel="stylesheet" href="assets/css/custom/uploadfile.css" />
+        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+        <link rel="stylesheet" href="assets/css/custom/slide-menu.css" />
+        <link rel="stylesheet" href="assets/css/custom/table-header.css" />
+        <link rel="stylesheet" href="assets/css/custom/view.css" />
+      </head>
+    <body>
+      <div ng-app="mainPage" ng-controller="mainCtrl" class="container-fluid">
+        <div id="pagecover"></div>
+        <div id="notifier"></div>
+        <div class="row header" style="background:rgba(236, 226, 182, 0.829); padding:2px;">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="index.html"><h1>SmartBox<sup>&reg;</sup></h1></a></div>
+          <div ng-if="user != null" class="col-xl-6 col-lg-6 col-md-6 d-xl-inline d-lg-inline d-md-inline d-sm-none d-none">&nbsp;</div>
+          <div ng-if="user == null" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 float-right text-right">&nbsp;</div>
+          <div ng-if="user == null" class="col-xl-6 col-lg-6 col-md-6 d-xl-inline d-lg-inline d-md-inline d-sm-none d-none">
+            <div ng-if="user == null" ng-controller="signinCtrl" class="row">
+              <form method="post" enctype="multipart/form-data" style="width:100%;">
+                <table style="width:100%;">
+                  <tr>
+                    <td>
+                      <label for="username">Username / E-mail</label>
+                      <input class="form-control" name="username" type="text" ng-model="user.username" placeholder="Please your username or e-mail." required>
+                    </td>
+                    <td>
+                      <label for="password">Password</label>
+                      <input class="form-control" name="password" type="password" ng-model="user.password" placeholder="Enter your password." required>
+                    </td>
+                    <td style="text-align:right; padding:0px; vertical-align:bottom;">
+                      <label>&nbsp;</label>
+                      <button type="submit" ng-click="signin();" class="btn btn-primary">&nbsp;Sign In&nbsp;</button>
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </div>
+          <div ng-if="user != null" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 float-right text-right">
+            <span class="profilex" ng-if="user != null">
+              <figure>
+                <nav>
+                  <img ng-if="user.user.profilepix != null" src="images/{{user.user.profilepix}}" class="prof_rounded_img" />
+                  <img ng-if="user.user.profilepix == null" src="images/no-image.png" class="prof_rounded_img" />
+                  <figcaption>&nbsp;<b>&nbsp;{{user.user.name}}</b></figcaption>
+                  <small>&nbsp;Member since:&nbsp;{{user.user.date_registered}}</small>
+                  <ul>
+                    <li><a href="profile.html">Account Settings</a></li>
+                    <li><a href="javascript:void(0)" ng-click="logout();">Log Out</a></li>
+                  </ul>
+                </nav>
+              </figure>
+            </span>
+          </div>
+        </div>
+        <div class="row content">
+          <div ng-if="user != null" class="col-xl-11 col-lg-11 col-md-11 col-sm-12 col-xs-12">
+            <div><span>+ Enter Mathematics Championship</span></div>
+            <div><span>+ Self Test Mode</span></div>
+            <div><span>+ Study Mode</span></div>
+          </div>
+          <div ng-if="user != null" class="col-xl-1 col-lg-1 col-md-1 right_menu_holder" >
+          <div ng-if="user != null" class="right_menu">
+            <ul>
+              <li><i class="fas fa-2x fa-trophy"></i>
+                <ul>
+                  <li><a href="javascript:void(0);">Enter for Mathematics Championship</a></li>
+                  <span>Are you a Mathematics guru? Or just wish
+                    you could make some money for yourself? You aint
+                    competing against any one just testing out your skill.
+                  </span>
+                </ul>
+              </li>
+              <li><i class="fas fa-2x fa-user"></i>
+                <ul>
+                  <li><a href="javascript:void(0);">Accounting Settings</a></li>
+                  <span>Your accounting settings is here. You can edit some very few things in your account.</span>
+                </ul>
+              </li>
+              <li><i class="fas fa-2x fa-cogs"></i>
+                <ul>
+                  <li><a href="javascript:void(0);">Self Test Mode</a></li>
+                  <span>You will like to prepare for an examination of your choice. Self Test is the mode to go with. You are presented with past questions on the examination which you attempt first before the answer is chosen with explanation to help you understand the basic concept.</span>
+                </ul>
+              </li>
+              <li><i class="fas fa-2x fa-exits"></i>
+                <ul>
+                  <li><a href="javascript:void(0);">Log Out</a></li>
+                  <span>You want to exit from your account? Make sure to return soon!<br/>Thank you!</span>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+          <div ng-if="user == null" class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12" style="background:rgba(136, 96, 96, 0.85);">
+              ads.
+            </div>
+          <div ng-if="user == null" class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div ng-controller="signUpCtrl" class="row" style="padding:0px 5px 0px 5px;">
+                <h6>Don't have a SmartBox Account? Sign Up</h6>
+                <form style="width:95%;" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="fullname">User Name</label>
+                    <input class="form-control" id="username" name="username" type="text" ng-model="user.username" placeholder="Please Choose a username." required>
+                  </div>
+                  <div class="form-group">
+                    <label for="fullname">Name</label>
+                    <input class="form-control" name="fullname" type="text" ng-model="user.name" placeholder="Please Enter your full name with surname first." required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input class="form-control" name="email" type="email" ng-model="user.email" placeholder="Please Enter your email." required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Mobile Phone</label>
+                    <input class="form-control" name="mobile_phone" type="tel" ng-model="user.mobile_phone" placeholder="Please Enter your mobile phone." required>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Choose Password</label>
+                    <input class="form-control" name="password" type="password" ng-model="user.password" placeholder="Choose a strong but easy to remember password." required>
+                  </div>
+                  <div class="form-group">
+                    <label for="cpassword">Confirm Password</label>
+                    <input class="form-control" name="cpassword" type="password" ng-model="user.cpassword" placeholder="Confirm your password." required>
+                  </div>
+                  <div ng-show="false" ng-controller="deful">
+                    <input name="role" type="text" ng-model="user.role" />
+                    <input name="datereg" type="text" ng-model="user.date_registered" />
+                  </div>
+                  <button type="submit" ng-click="signup();" class="btn btn-primary" style="float:right;">&nbsp;Register&nbsp;</button>
+                </form>
+                </div>
+          </div>
+        </div>
+        <div class="row footer">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">&copy;&nbsp;2018 AHER TECHNOLOGIES LIMITED</div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12"><a href="#">link 1</a> | <a href="#">link 2</a> | <a href="#">link 3</a> | <a href="#">link 4</a> | <a href="#">link 5</a> | <a href="#">link 6</a></div>
+        </div>
+      </div>
+      <script language="javascript" type="text/javascript" src="assets/js/jquery.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/popper.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/angular.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/jquery-ui.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/jquery.datepick.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/jquery.table2excel.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/jquery.uploadfile.min.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/utility.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/js/autocomplete.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/src/signup.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/src/signin.js"></script>
+      <script language="javascript" type="text/javascript" src="assets/src/master.js"></script>
+    </body>
+  </html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SmartBox&trade; :: Welcome!</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/bulma/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/custom/master.css" />
+    <link rel="stylesheet" href="assets/css/custom/uploadfile.css" />
+    <link rel="stylesheet" href="assets/css/custom/view.css" />
+</head>
+
+<body>
+    <div ng-app="mainPage" ng-controller="mainCtrl">
+    <div id="pagecover"></div>
+    <div id="notifier"></div>
+    <div class="block">
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <!-- navbar items, navbar burger... -->
+                <a href="javascript:void(0);" class="navbar-item is-inverse">
+                    <h1 class="title is-1">SmartBox<sup>&reg;</sup></h1>
+                </a>
+                <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div ng-if="user == null" class="navbar-menu is-active">
+                <div class="navbar-end">
+                    <li class="no-list-style right-bar">
+                        <a href="signup.html" class="navbar-item">
+                            <h2 class="title is-4">Sign Up</h2></a>
+                    </li>
+                    <li class="no-list-style">
+                        <a href="signin.html" class="navbar-item">
+                            <h2 class="title is-4">Login</h2></a>
+                    </li>
+                </div>
+            </div>
+            <div ng-if="user != null" class="navbar-menu is-active">
+                <!-- navbar start, navbar end -->
+                <div class="navbar-end">
+                    <ul class="root-menu">
+                        <li>
+                            <a href="javascript:void(0);" class="navbar-item">
+                                <span class="icon">
+                                    <i class="fa fa-3x fa-user is-rounded"></i>
+                                </span>
+                            </a>
+                            <ul>
+                                <li>{{user.name}}<br/></li>
+                                <li>
+                                <a href="javascript:void(0);" class="navbar-item">
+                                    <span class="icon">
+                                    <i class="fa fa-1.5x fa-trophy"></i>
+                                </span>&nbsp;&nbsp;Championship</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="navbar-item">
+                                    <span class="icon"><i class="fa fa-1.5x fa-cogs"></i>
+                                </span>&nbsp;&nbsp;Settings</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="navbar-item">
+                                    <span class="icon"><i class="fa fa-1.5x fa-first-aid"></i>
+                                    </span>&nbsp;&nbsp;Self Test Mode
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="navbar-item">
+                                    <span class="icon"><i class="fa fa-1.5x fa-book"></i>
+                                    </span>&nbsp;&nbsp;Study Mode
+                                </a>
+                            </li>
+                            <li ng-click="logout();">
+                                <a href="javascript:void(0);" class="navbar-item">
+                                    <span class="icon"><!--<img src="images/exit.png" />-->
+                                        <i class="fa fa-1.5x fa-sign-out-alt"></i>
+                                    </span>&nbsp;&nbsp;Exit</a>
+                            </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="block">
+            <div class="columns">
+                <div class="column">
+                    <div class="card">
+                        <div class="card-header-title">Lorem, ipsum dolor.</div>
+                        <div class="card-content">
+                            <canvas id="myChart" width="300" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-header-title">Lorem, ipsum dolor.</div>
+                        <div class="card-content">
+                            <canvas id="myDoughnut" width="300" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-header-title">Lorem, ipsum dolor.</div>
+                        <div class="card-content">
+                            <canvas id="lineGraph" width="300" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block">
+            <div class="columns">
+                <div class="column is-one-three">
+                    <div class="card">
+                        <div class="card-header-title">
+                            Lorem, ipsum dolor.
+                        </div>
+                        <div class="card-content">
+                            <table class="table is-bordered is-narrow is-hoverable is-fullwidth">
+                                <thead>
+                                    <th>S/N</th>
+                                    <th>FIRST NAME</th>
+                                    <th>SURNAME</th>
+                                    <th>E-MAIL</th>
+                                    <th>MOBILE PHONE</th>
+                                    <th>ZIP CODE</th>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="x in tdata">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{x.firstname}}</td>
+                                        <td>{{x.surname}}</td>
+                                        <td>{{x.email}}</td>
+                                        <td>{{x.mobile_phone}}</td>
+                                        <td>{{x.zipcode}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="columns">
+                        <div class="column is-half">
+                            <div class="card">
+                                <div class="card-header-title">
+                                    Lorem, ipsum dolor.
+                                </div>
+                                <div class="card-content">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero numquam nisi necessitatibus! Voluptas enim optio reprehenderit tenetur nisi soluta tempora.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-half">
+                            <div class="card">
+                                <div class="card-header-title">
+                                    Lorem, ipsum dolor.
+                                </div>
+                                <div class="card-content">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero numquam nisi necessitatibus! Voluptas enim optio reprehenderit tenetur nisi soluta tempora.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-half">
+                            <div class="card">
+                                <div class="card-header-title">
+                                    Lorem, ipsum dolor.
+                                </div>
+                                <div class="card-content">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero numquam nisi necessitatibus! Voluptas enim optio reprehenderit tenetur nisi soluta tempora.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-half">
+                            <div class="card">
+                                <div class="card-header-title">
+                                    Lorem, ipsum dolor.
+                                </div>
+                                <div class="card-content">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero numquam nisi necessitatibus! Voluptas enim optio reprehenderit tenetur nisi soluta tempora.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-start">
+            &copy; 2018 AHER TECH. LTD.
+        </div>
+        <div class="footer-end has-text-right">
+            SmartBox&trade;
+        </div>
+    </footer>
+    </div>
+    <script language="javascript" type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/angular.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/chartjs/dist/Chart.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/jquery-ui.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/jquery.datepick.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/jquery.table2excel.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/jquery.uploadfile.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/utility.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/autocomplete.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/src/signup.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/src/signin.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/src/master.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            //Get all navbar-burger elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            //Check if there are any navbar burgers
+            if ($navbarBurgers.length > 0) {
+                //Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+
+                        //Get the target from the data-target attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        //Toggle the is-active class on both the navbar-burger and the navbar-menu
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle(is - active);
+                    });
+                });
+            }
+        });
+    </script>
+    <script>
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+            </script>
+            <script>
+                var ctxd = document.getElementById("myDoughnut").getContext('2d');
+                data = {
+                    datasets: [{
+                        data: [10, 20, 30]
+                    }],
+
+                    // These labels appear in the legend and in the tooltips when hovering different arcs
+                    labels: [
+                        'Red',
+                        'Yellow',
+                        'Blue'
+                    ]
+                };
+                var myDoughnutChart = new Chart(ctxd, {
+                    type: 'doughnut',
+                    data: data,
+                    //options: options
+                });
+            </script>
+        <script>
+            var ctxl = document.getElementById("lineGraph").getContext('2d');
+            //data: [{x: 10, y: 20}, {x: 15, y: 10}, {x: 20, y: 15}, {x:25, y:17}];
+            var myLineChart = new Chart(ctxl, {
+            type: 'line',
+            data: {
+                labels:[0, 1, 2, 3, 4, 5],
+                datasets:[
+                {label:'light red',
+                borderColor: 'rgba(255,99,132,1)',
+                data: [65, 59, 80, 81, 56, 55, 40]},
+                {label:'bluish line',
+                borderColor: 'rgba(151,187,205,1)',
+                data: [28, 48, 40, 19, 86, 27, 90]},
+                {label:'deep red',
+                borderColor: 'rgba(215,10,5,1)',
+                data: [8, 18, 30, 49, 66, 57, 99]}]
+            }
+            //options: options
+        });
+        </script>
+        <script>
+                var app = angular.module("myapp", []);
+                app.controller('myCtrl', function($scope, $filter, $http){
+                    this.user = {"id":1, "username":"Gab", "name":"Gabriel Ebere"};
+                    //$scope.user = this.user;
+                    $scope.tdata = [
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Gideon', surname:'Apetu', email:'apetugideon@gmail.com', mobile_phone:'09020071100', zipcode:'101214'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'},
+                {firstname:'Abayomi', surname:'Apetu', email:'abayomismart@gmail.com', mobile_phone:'08063582789', zipcode:'102110'}];
+                });
+            </script>
+    </body>
+
+</html>

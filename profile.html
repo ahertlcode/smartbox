@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Educare&reg;::Portal</title>
+        <meta content="text/html" charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+        <link rel="stylesheet" href="assets/css/jquery.datepick.css" />
+        <link rel="stylesheet" href="assets/css/custom/uploadfile.css" />
+        <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+        <link rel="stylesheet" href="assets/css/custom/slide-menu.css" />
+        <link rel="stylesheet" href="assets/css/custom/table-header.css" />
+        <link rel="stylesheet" href="assets/css/custom/view.css" />
+    </head>
+    <body>
+        <div ng-app="mainPage" ng-controller="mainCtrl" class="container-fluid">
+        <div id="pagecover"></div>
+        <div id="notifier"></div>
+        <div class="row header" style="background:rgba(236, 226, 182, 0.829); padding:2px;">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="index.html"><h1>SmartBox<sup>&reg;</sup></h1></a></div>
+            <div ng-if="user != null" class="col-xl-6 col-lg-6 col-md-6 d-xl-inline d-lg-inline d-md-inline d-sm-none d-none">&nbsp;</div>
+            <div ng-if="user != null" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6 float-right text-right">
+            <span class="profilex" ng-if="user != null">
+                <figure>
+                    <nav>
+                        <img ng-if="user.user.profilepix != null" src="images/{{user.user.profilepix}}" class="prof_rounded_img" />
+                        <img ng-if="user.user.profilepix == null" src="images/no-image.png" class="prof_rounded_img" />
+                        <figcaption>&nbsp;<b>&nbsp;{{user.user.name}}</b></figcaption>
+                        <small>&nbsp;Member since:&nbsp;{{user.user.date_registered}}</small>
+                        <ul>
+                            <li><a href="profile.html">Account Settings</a></li>
+                            <li><a href="javascript:void(0)" ng-click="logout();">Log Out</a></li>
+                        </ul>
+                    </nav>
+                </figure>
+            </span>
+            </div>
+        </div>
+        <div class="row content">
+        <div ng-if="user != null" class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <table style="font-size:22px;">
+                <tr><td><b>Username:</b>&nbsp;{{user.user.username}}</td></tr>
+                <tr><td><b>Name:</b>&nbsp;{{user.user.name}}</td></tr>
+                <tr><td><b>E-mail:</b>&nbsp;{{user.user.email}}</td></tr>
+                <tr><td><b>Mobile Phone:</b>&nbsp;{{user.user.mobile_phone}}</td></tr>
+                <tr><td><b>Profile Picture:</b><br/><img ng-if="user.user.profile_pix != ''" src="images/{{user.user.profile_pix}}" /><img ng-if="user.user.profile_pix == null" src="images/no-image.png" /></td></tr>
+                <tr><td><b>Date Registered:</b>&nbsp;{{user.user.date_registered}}</td></tr>
+                <tr><td><b>User Type:</b>&nbsp;{{user.user.role}}</td></tr>
+                <tr><td><b>Status</b>&nbsp;<span ng-if="user.user.status == 1">{{"ACTIVE"}}</span><span ng-if="user.user.status == 0">{{"SUSPENDED"}}</span></td></tr>
+            </table>
+        </div>
+        </div>
+        <div class="row footer">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">&copy;&nbsp;2018 AHER TECHNOLOGIES LIMITED</div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12"><a href="#">link 1</a> | <a href="#">link 2</a> | <a href="#">link 3</a> | <a href="#">link 4</a> | <a href="#">link 5</a> | <a href="#">link 6</a></div>
+        </div>
+        </div>
+        <script language="javascript" type="text/javascript" src="assets/js/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/popper.min.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/angular.min.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/jquery-ui.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/jquery.datepick.min.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/jquery.table2excel.min.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/jquery.uploadfile.min.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/utility.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/js/autocomplete.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/src/signup.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/src/signin.js"></script>
+        <script language="javascript" type="text/javascript" src="assets/src/master.js"></script>
+    </body>
+</html>

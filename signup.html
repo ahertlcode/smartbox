@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>SmartBox&trade; :: Sign Up</title>
+      <meta content="text/html" charset="utf-8" >
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="assets/css/fontawesome-all.min.css">
+      <link rel="stylesheet" type="text/css" href="assets/bulma/css/bulma.min.css" />
+      <link rel="stylesheet" type="text/css" href="assets/css/custom/master.css" />
+      <link rel="stylesheet" href="assets/css/custom/uploadfile.css" />
+      <link rel="stylesheet" href="assets/css/custom/view.css" />
+    </head>
+  <body>
+    <div ng-app="signUpView" ng-controller="signUpCtrl">
+      <div id="pagecover"></div>
+      <div id="notifier"></div>
+      <div class="block">
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <!-- navbar items, navbar burger... -->
+            <a href="javascript:void(0);" class="navbar-item is-inverse">
+              <h1 class="title is-1">SmartBox<sup>&reg;</sup></h1>
+            </a>
+            <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+        </nav>
+        <div class="columns">
+          <div class="column is-three-quarter">
+            left side
+          </div>
+          <div class="column is-one-quarter" style="padding:25px;">
+              <form class="form" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="fullname">User Name</label>
+                  <input class="input" id="username" name="username" type="text" ng-model="user.username" required>
+                  <small>Please Choose a username.</small>
+                </div>
+                <div class="form-group">
+                  <label for="fullname">Name</label>
+                  <input class="input" name="fullname" type="text" ng-model="user.name" required>
+                  <small>Please Enter your full name with surname first.</small>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input class="input" name="email" type="email" ng-model="user.email" required>
+                  <small>Please Enter your email.</small>
+                </div>
+                <div class="form-group">
+                  <label for="email">Mobile Phone</label>
+                  <input class="input" name="mobile_phone" type="tel" ng-model="user.mobile_phone" required>
+                  <small>Please Enter your mobile phone.</small>
+                </div>
+                <div class="form-group">
+                  <label for="password">Choose Password</label>
+                  <input class="input" name="password" type="password" ng-model="user.password" required>
+                  <small>Choose a strong but easy to remember password.</small>
+                </div>
+                <div class="form-group">
+                  <label for="cpassword">Confirm Password</label>
+                  <input class="input" name="cpassword" type="password" ng-model="user.cpassword" required>
+                  <small>Confirm your password.</small>
+                </div>
+                  <div ng-show="false" ng-controller="deful">
+                    <input name="role" type="text" ng-model="user.role" />
+                    <input name="datereg" type="text" ng-model="user.date_registered" />
+                  </div>
+                  <button type="button" ng-click="signup();" class="is-primary">&nbsp;Register&nbsp;</button>
+                </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script language="javascript" type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/angular.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/chartjs/dist/Chart.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/jquery-ui.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/jquery.datepick.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/jquery.table2excel.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/jquery.uploadfile.min.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/utility.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/js/autocomplete.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/src/signup.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/src/signin.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/src/master.js"></script>
+    </body>
+  </html>

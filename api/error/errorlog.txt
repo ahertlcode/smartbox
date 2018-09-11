@@ -1,0 +1,55 @@
+Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'role' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'role' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'profile_pix' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'profile_pix' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`mathchamp`.`access`, CONSTRAINT `fk_access_1` FOREIGN KEY (`role`) REFERENCES `roles` (`role`) ON UPDATE NO ACTION) : 
+ SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`mathchamp`.`access`, CONSTRAINT `fk_access_1` FOREIGN KEY (`role`) REFERENCES `roles` (`role`) ON UPDATE NO ACTION) 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value 
+
+ Error on line 58 in SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value : 
+ SQLSTATE[HY000]: General error: 1364 Field 'username' doesn't have a default value 
+
+ 
